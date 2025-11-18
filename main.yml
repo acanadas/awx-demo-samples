@@ -5,13 +5,13 @@
       debug:
         msg: "Hello World!"
 
-- name: FACTS.LINUX.FAMILY
-  ansible.builtin.shell:
-    cmd: "set -o pipefail && awk -F= '$1==\"PRETTY_NAME\" { print $2 ;}' /etc/os-release | sed 's/\"//g'"
-    executable: /bin/bash
-  register: family
-  changed_when: family.rc != 0
+    - name: FACTS.LINUX.FAMILY
+      ansible.builtin.shell:
+        cmd: "set -o pipefail && awk -F= '$1==\"PRETTY_NAME\" { print $2 ;}' /etc/os-release | sed 's/\"//g'"
+        executable: /bin/bash
+      register: family
+      changed_when: family.rc != 0
 
-- name: Debug facts
-  ansible.builtin.debug:
-    msg: '"distribution": "{{ family.stdout }}"'
+    - name: Debug facts
+      ansible.builtin.debug:
+        msg: '"distribution": "{{ family.stdout }}"'
