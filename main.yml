@@ -14,4 +14,4 @@
 
 - name: Debug facts
   ansible.builtin.debug:
-    msg: "distribution": "{{ family.stdout }}"
+    msg: '"distribution": "{{ family.stdout }}"'
