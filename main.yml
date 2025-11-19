@@ -15,3 +15,7 @@
     - name: Debug facts
       ansible.builtin.debug:
         msg: '"distribution": "{{ family.stdout }}"'
+
+    - name: test vault
+      ansible.builtin.debug:
+        msg: "{{ test_vault }}"
